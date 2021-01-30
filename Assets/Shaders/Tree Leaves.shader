@@ -94,10 +94,10 @@ Shader "Tree Leaves"
 
 		void surf( Input i , inout SurfaceOutputStandardCustom o )
 		{
-			float4 color1 = IsGammaSpace() ? float4(0.4745098,0.6705883,0.6078432,0) : float4(0.1912017,0.4072403,0.3277781,0);
+			float4 color1 = IsGammaSpace() ? float4(0.1123349,0.433,0.2068616,0) : float4(0.01204486,0.1571816,0.03528307,0);
 			o.Albedo = color1.rgb;
 			o.Smoothness = 0.2;
-			float3 temp_cast_1 = (3.0).xxx;
+			float3 temp_cast_1 = (0.8).xxx;
 			o.Transmission = temp_cast_1;
 			float3 temp_cast_2 = (0.34).xxx;
 			o.Translucency = temp_cast_2;
@@ -118,7 +118,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;4;362.7179,182.8578;Inherit;False;Const
 Node;AmplifyShaderEditor.DynamicAppendNode;12;881.5179,266.6577;Inherit;False;FLOAT4;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;7;1043.518,298.2577;Inherit;False;2;2;0;FLOAT4;0,0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT4;0
 Node;AmplifyShaderEditor.PosVertexDataNode;2;774.7181,479.558;Inherit;False;0;0;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;1;1223.484,-352.7381;Inherit;False;Constant;_TrunkColor;TrunkColor;0;0;Create;True;0;0;0;False;0;False;0.4745098,0.6705883,0.6078432,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;1;1223.484,-352.7381;Inherit;False;Constant;_TrunkColor;TrunkColor;0;0;Create;True;0;0;0;False;0;False;0.1123349,0.433,0.2068616,0;0,0,0,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SinOpNode;15;396.5054,82.75464;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.NoiseGeneratorNode;3;507.2179,-142.1422;Inherit;True;Simplex2D;True;False;2;0;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;10;720.718,260.8578;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
@@ -127,7 +127,7 @@ Node;AmplifyShaderEditor.Vector3Node;6;324.7179,331.8578;Inherit;False;Constant;
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;16;542.5054,96.75464;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;8;-23.2821,-130.1422;Inherit;True;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.Vector2Node;13;239.3703,-129.2295;Inherit;False;Constant;_Vector1;Vector 1;0;0;Create;True;0;0;0;False;0;False;1.68,1;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
-Node;AmplifyShaderEditor.RangedFloatNode;17;1297.068,39.71069;Inherit;False;Constant;_Float1;Float 1;0;0;Create;True;0;0;0;False;0;False;3;0;0;0;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;17;1297.068,39.71069;Inherit;False;Constant;_Float1;Float 1;0;0;Create;True;0;0;0;False;0;False;0.8;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;19;1277.068,-87.28931;Inherit;False;Constant;_Float3;Float 3;0;0;Create;True;0;0;0;False;0;False;0.2;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.StandardSurfaceOutputNode;0;1526.601,-91.58245;Float;False;True;-1;2;ASEMaterialInspector;0;0;Standard;Tree Leaves;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;Off;0;False;-1;0;False;-1;False;0;False;-1;0;False;-1;False;0;Opaque;0.5;True;True;0;False;Opaque;;Geometry;ForwardOnly;14;all;True;True;True;True;0;False;-1;False;0;False;-1;255;False;-1;255;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;-1;False;2;15;10;25;False;0.5;True;0;0;False;-1;0;False;-1;0;0;False;-1;0;False;-1;0;False;-1;0;False;-1;0;False;0;0,0,0,0;VertexOffset;True;False;Cylindrical;False;Relative;0;;-1;0;-1;-1;0;False;0;0;False;-1;-1;0;False;-1;0;0;0;False;0.1;False;-1;0;False;-1;False;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 WireConnection;12;0;10;0
@@ -148,4 +148,4 @@ WireConnection;0;6;17;0
 WireConnection;0;7;18;0
 WireConnection;0;11;2;0
 ASEEND*/
-//CHKSM=58DFAA601E54AF2EE27C67B1645A0AE7C9EB3228
+//CHKSM=535E9A8AE14E9D2DA6A9D22B2F42A7BA814DB53F
