@@ -23,6 +23,13 @@ public class TDPlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0)){
             selected = TargetAtRay();
         }
+        MoveToSelected();
+    }
+
+    void MoveToSelected(){
+        if(!selected) return;
+
+        cam.transform.position = Vector3.Lerp(new Vector3(selected.transform.position.x, 100, selected.transform.position.z), cam.transform.position,0.3f);
     }
 
     Transform TargetAtRay () {
@@ -38,4 +45,5 @@ public class TDPlayer : MonoBehaviour
 
         return null;
     }
+    
 }

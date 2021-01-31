@@ -13,6 +13,8 @@ public class TreePlanter : MonoBehaviour
     [SerializeField]
     private int numOfTrees = 100;
     [SerializeField]
+    private Vector2 treeScale;
+    [SerializeField]
     private float minDistance = 10f;
     [SerializeField]
     private Vector4 placementRange;
@@ -38,7 +40,8 @@ public class TreePlanter : MonoBehaviour
             if (valid){
                 attempts = 0;
                 GameObject go = Instantiate(treePrefabs[Random.Range(0,3)], pos, Quaternion.identity);
-                go.transform.localScale = new Vector3(randScale,randScale,randScale);
+                var tScale = Random.Range(treeScale.x,treeScale.y);
+                go.transform.localScale = new Vector3(tScale,tScale,tScale);
                 go.transform.Rotate(new Vector3( 0, Random.Range(-180f,180f), 0));
                 placedTrees.Add(go);
                 treesPlaced++;
