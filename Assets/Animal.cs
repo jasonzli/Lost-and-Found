@@ -30,6 +30,13 @@ public class Animal : MonoBehaviour
     private MaterialPropertyBlock block;
     private AnimalProperties _prop;
     private CharacterController controller;
+
+    [SerializeField]
+    private float gravityForce = 9.8f;
+
+    public bool Primal{
+        get; private set;
+    }
     public Transform CamTransform{
         get { return camTransform;}
         private set { camTransform = value;}
@@ -42,9 +49,11 @@ public class Animal : MonoBehaviour
     }
 
     void Update(){
-        Vector3 move = new Vector3( Mathf.Cos(_prop.Heading), 0 , Mathf.Sin(_prop.Heading));
+        Vector3 move = new Vector3( Mathf.Cos(_prop.Heading), -gravityForce * Time.deltaTime , Mathf.Sin(_prop.Heading));
+        
+        if(controller.isGrounded) move.y = 0f;
         controller.Move(move * Time.deltaTime * _prop.MaxVelocity);
-
+        
         if (move != Vector3.zero){
             gameObject.transform.forward = Vector3.Lerp(gameObject.transform.forward,move,.2f);
         }
@@ -64,7 +73,6 @@ public class Animal : MonoBehaviour
     float NewHeading(){
         return Random.Range(0f,360f);
     }
-
 
     bool OutOfTime(){
         return _prop.Time < 0f;
@@ -91,5 +99,7 @@ public class Animal : MonoBehaviour
         render.GetPropertyBlock(block);
         block.SetColor("_BodyColor", Color.red);
         render.SetPropertyBlock(block);
+        
+        this.Primal = true;
     }
 }

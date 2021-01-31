@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TDPlayer : MonoBehaviour
 {
@@ -9,7 +10,10 @@ public class TDPlayer : MonoBehaviour
     private Camera cam;
     
     [SerializeField]
-    private Transform selected;
+    private Transform selected; 
+
+    [SerializeField]
+    private TextMeshProUGUI textObj;
 
     [SerializeField]
     private int SortingLayer;
@@ -24,8 +28,15 @@ public class TDPlayer : MonoBehaviour
             selected = TargetAtRay();
         }
         MoveToSelected();
+
+        if ( (selected == null ? false : selected.gameObject.GetComponentInParent<Animal>().Primal)){
+            CorrectSelection();
+        }
     }
 
+    void CorrectSelection(){
+        textObj.text = "You have found me!";
+    }
     void MoveToSelected(){
         if(!selected) return;
 
