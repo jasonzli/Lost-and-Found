@@ -32,6 +32,10 @@ public class TDPlayer : MonoBehaviour
         if ( (selected == null ? false : selected.gameObject.GetComponentInParent<Animal>().Primal)){
             CorrectSelection();
         }
+
+        
+        Vector3 move = new Vector3( Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        cam.transform.position += move * 3f;
     }
 
     void CorrectSelection(){

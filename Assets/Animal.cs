@@ -59,12 +59,15 @@ public class Animal : MonoBehaviour
         }
 
         if (GoingOutOfBounds() || OutOfTime()){
-            _prop.Heading = NewHeading();
+            _prop.Heading = GoingOutOfBounds() ? _prop.Heading + 90f : NewHeading();
             _prop.MaxVelocity = Random.Range(3f,20f);
         }
 
         if (OutOfTime()) _prop.Time += Random.Range(2f,5f);
 
+        //zeroes out the weird x axis rotation
+
+        transform.rotation = Quaternion.Euler(0f, transform.localEulerAngles.y, transform.localEulerAngles.z);
         _prop.Time -= Time.deltaTime;
     }
 
